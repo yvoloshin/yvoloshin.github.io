@@ -1,14 +1,12 @@
-
 ---
 layout:     post
 title:      Review of Agile Development with Rails
-date:       2015-11-25 13:30:00
+date:       2015-11-30 12:32:18
 author:     Yury Voloshin
-summary:    My impressions of Agile Development with Rails
+summary:    My impressions of Agile Development with Rails (4th Edition)
 categories: Rails
-comments: true
 tags:
- - book review
+ - books
 ---
 
 In a world of extensive free online documentation and numerous tutorials, we might think that programming books are redundant. On some level, that is probably true. It is entirely possible to pick up the basics of a popular framework and/or a language simply by going through online tutorials. But, for a deeper understanding of what's going on "under the hood", nothing beats a well-written book on the subject. This is something that easily applies to [*Agile Development with Rails* (4th Edition)](http://www.amazon.com/Agile-Development-Rails-Facets-Ruby/dp/1937785564) by Sam Ruby (no relation to the Ruby language), Dave Thomas, and David Heinemeier Hansson. I started reading this book after completing the Rails-focused web development program at [theFirehoseProject](http://www.thefirehoseproject.com) with the goal of solidifying what I learned at the bootcamp. There is a number of Rails books out there, and I chose this one because I figured, since one of the authors is the inventor of Rails, he must know a thing or two on this subject. The book did not disappoint. 
