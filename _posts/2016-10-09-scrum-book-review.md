@@ -15,19 +15,19 @@ The keys to improving this process lay in making two general adaptations to the 
 
 The driving force behind agile development is that "consistency and predictability in software development is largely an illusion". Much more of an illusion than for a mature manufacturing process. The concepts that make Agile development possible are:
 
-Agile team: a team made up of developers, a product owner, and a scrum master.
+**Agile team**: a team made up of developers, a product owner, and a scrum master.
 
-Sprint: a period lasting between 1 day and 1 month when the development team spends working on defined set of tasks. The state of the product is reassessed and feedback is obtained from stakeholders before starring with the next sprint.
+**Sprint**: a period lasting between 1 day and 1 month when the development team spends working on defined set of tasks. The state of the product is reassessed and feedback is obtained from stakeholders before starring with the next sprint.
 
-MVP: minimum viable product. This can be either done kind of a mock-up, or a rudimentary working version of the product. MVP lets the developers get initial feedback from stakeholders prior to spending a lot of time on the product.
+**MVP**: minimum viable product. This can be either done kind of a mock-up, or a rudimentary working version of the product. MVP lets the developers get initial feedback from stakeholders prior to spending a lot of time on the product.
 
-Product backlog: a prioritized list of the product's features. It guides the efforts of the scrum team.
+**Product backlog**: a prioritized list of the product's features. It guides the efforts of the scrum team.
 
-Grooming: populating and updating the product backlog. This is an activity that the whole Agile team participates in. It is ongoing throughout the development process.
+**Grooming**: populating and updating the product backlog. This is an activity that the whole Agile team participates in. It is ongoing throughout the development process.
 
-Sprint planning is a meeting of the full development team where the team decides on the tasks to be included in the next sprint. This is done by prioritizing the tasks, estimating how long each task will take, and adding as many tasks to the sprint backlog as the developers believe they can finish during the sprint period.
+**Sprint planning** is a meeting of the full development team where the team decides on the tasks to be included in the next sprint. This is done by prioritizing the tasks, estimating how long each task will take, and adding as many tasks to the sprint backlog as the developers believe they can finish during the sprint period.
 
-Planning Poker is a trick used to avoid "Groupthink" when estimating the lengths of development tasks. If all the group mebers announced their guesses aloud, then the first guess uttered and the guess of the most experienced team member would have undue influences on the remaining members' guesses. This is avoided by giving each team member a deck of cards and having each member lay down a card face down. The value of the card would be the number of hours that they think the task is most likely to take. The cards ranging from 2 to King have the values from 2 to 13 (respectively), and the Ace has the value of 1. 
+**Planning Poker** is a trick used to avoid "Groupthink" when estimating the lengths of development tasks. If all the group mebers announced their guesses aloud, then the first guess uttered and the guess of the most experienced team member would have undue influences on the remaining members' guesses. This is avoided by giving each team member a deck of cards and having each member lay down a card face down. The value of the card would be the number of hours that they think the task is most likely to take. The cards ranging from 2 to King have the values from 2 to 13 (respectively), and the Ace has the value of 1. 
 
 The daily scrum is a brief meeting no longer than 15 minutes where each team member talks about the tasks they're working on and the obstacles they're facing.
 
