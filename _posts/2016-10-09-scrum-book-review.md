@@ -4,7 +4,7 @@ title:      Review of Scrum Basics: A Very Quick Guide to Agile Project Manageme
 date:       2016-10-09 14:00:00
 author:     Yury Voloshin
 summary:    My impression of Scrum Basics
-categories: Books
+categories: books
 ---
 
 Its been a long time, nearly nine months, since my last post. A job and two very active little kids make it very difficult to find time for blogging, but I figure that rare posts are better than none at all. At work I've been on a steep learning curve with PHP and Symfony, as well as trying to get a better grip on the "softer" aspects of software development. Since I am a part of a Scrum team, a better undertsanding of the origin and mechanics of the Scrum process would be a good idea. [Scrum Basics: A Very Quick Guide to Agile Project Management] (https://amzn.com/1623155886) is a reasonably short and easy to read book on the basics of the Agile development framework. I picked it up because, even though I understand the mechanics of agile development from my work on agile teams at Columbia (currently) and at the firehose project (past), I knew that I didn't have a clear understanding of how the agile framework is different from  other development methods because agile is the only software development framework I've ever worked with. I was also looking for a broader perspective on software development project management. What are the pros and cons of agile, and what are the other frameworks our there?
