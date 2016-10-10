@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      Review of Scrum Basics: A Very Quick Guide to Agile Project Management
+title:      Review of Scrum Basics
 date:       2016-10-09 14:05:12
 author:     Yury Voloshin
-summary:    My impression of Scrum Basics
+summary:    Scrum Basics is a practical introduction to the workings of Agile teams
 categories: books
 ---
 
