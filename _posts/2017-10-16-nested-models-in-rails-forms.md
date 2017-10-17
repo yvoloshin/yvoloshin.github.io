@@ -12,10 +12,13 @@ The app is an exercise tracker. What makes it different from most exercise track
 
 The controller method that creates a new routine looks like this:
 
+```ruby
 def new
-		@workout_type = WorkoutType.new
-		@exercise_types = Array.new(10) { @workout_type.exercise_types.build }
-	end
+	@workout_type = WorkoutType.new
+	@exercise_types = Array.new(10) { @workout_type.exercise_types.build }
+end
+```
+
 Here, the workout_type and the associated exercises (child objects of workout_type) are created. (Routines are set to have a maximum of 10 exercises.)
 
 The exercise routine is created in a form that looks like this:
@@ -23,30 +26,45 @@ The exercise routine is created in a form that looks like this:
 
 The form was created using simple_form gem.The simple_form documentation has a good description of nested models here (https://github.com/plataformatec/simple_form/wiki/Nested-Models). I followed this documentation to come up with the code below. 
 
+```html
 <%= simple_form_for (@workout_type) do |f| %>
-		<%= f.input :type_name, label: 'What will you call this workout?' %>
-		<br />
-		<%= f.input :description, label: 'Add a brief description of this workout.', input_html: { class: 'mceEditor' } %>
+	<%= f.input :type_name, label: 'What will you call this workout?' %>
+	<br />
+	<%= f.input :description, label: 'Add a brief description of this workout.', input_html: { class: 'mceEditor' } %>
 	
-	 	<h3>Now enter up to 10 exercises:</h3> 
+	<h3>Now enter up to 10 exercises:</h3> 
 	  
-		<table class="table table-bordered table-striped table-responsive">
-		  <thead>
+	<table class="table table-bordered table-striped table-responsive">
+		<thead>
 		    <tr>
-		      <th>Exercise Name</th>
-		      <th>Sets<br /><small><i>(assuming 1 set if left blank)</i></small></th>
-		      <th>Reps</th>
-		      <th>Load, lb or % max<br /><small><i>(leave blank if bodyweight)</i></small></th>
-		      <th>Link to instructions on how to perform this exercise</th>
+		    	<th>Exercise Name</th>
+			<th>Sets<br /><small><i>(assuming 1 set if left blank)</i></small></th>
+		 	<th>Reps</th>
+		  	<th>Load, lb or % max<br /><small><i>(leave blank if bodyweight)</i></small></th>
+		  	<th>Link to instructions on how to perform this exercise</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <%= f.fields_for :exercise_types, @exercise_types do |builder| %>
-		      <%= render 'exercise_fields_table', :f => builder %>
-		    <% end %>
+		  	<%= f.fields_for :exercise_types, @exercise_types do |builder| %>
+		      		<%= render 'exercise_fields_table', :f => builder %>
+		    	<% end %>
 		  </tbody>
-		</table>
-		<%= f.submit 'Create Workout Routine', :class=>"btn btn-primary", :id=>"routine_submit" %>
-	<% end %>
+	</table>
+	<%= f.submit 'Create Workout Routine', :class=>"btn btn-primary", :id=>"routine_submit" %>
+<% end %>
+```
 
-The helper method simple_form_for is used to specify the  <parent> model, <workout_type>. The first half of the form contains fields for this model. The child objects of workout_type, called exercise_types, are specified using the helper method <fields_for> that can be seen toward the bottom of the form. A partial template <exercise_fields_table> is rendered for each exercise_type that has been created in the controller's <new> method.
+The helper method `simple_form_for` is used to specify the parent model, `workout_type`. The first half of the form contains fields for `workout_type`. The child objects of `workout_type`, called `exercise_types`, are specified using the helper method `fields_for` that can be seen toward the bottom of the form. A partial form `exercise_fields_table` is rendered for each `exercise_type` that has been created in the controller's `new` method. And this is all that we need to do in the form itself to render fields belonging to associated models. But, there's something else that needs to be done outside the form. We need to let Rails know that the form used to create a new `workout_type` object will also be used to create the child objects `exercise_types`. We do this by adding a `accepts_nested_attributes_for` statement in the `workout_type` model, like this:
+
+```ruby
+class WorkoutType < ActiveRecord::Base
+	attr_accessor :exercise_type_attributes, :workout_type_id
+	has_many :exercise_types, dependent: :destroy
+	has_many :workouts
+	belongs_to :user
+
+	accepts_nested_attributes_for :exercise_types
+end
+```
+
+
