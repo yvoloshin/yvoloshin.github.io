@@ -54,7 +54,9 @@ The form was created using simple_form gem.The simple_form documentation has a g
 <% end %>
 ```
 
-The helper method `simple_form_for` is used to specify the parent model, `workout_type`. The first half of the form contains fields for `workout_type`. The child objects of `workout_type`, called `exercise_types`, are specified using the helper method `fields_for` that can be seen toward the bottom of the form. A partial form `exercise_fields_table` is rendered for each `exercise_type` that has been created in the controller's `new` method. And this is all that we need to do in the form itself to render fields belonging to associated models. But, there's something else that needs to be done outside the form. We need to let Rails know that the form used to create a new `workout_type` object will also be used to create the child objects `exercise_types`. We do this by adding a `accepts_nested_attributes_for` statement in the `workout_type` model, like this:
+The helper method `simple_form_for` is used to specify the parent model, `workout_type`. The first half of the form contains fields for `workout_type`. The child objects of `workout_type`, called `exercise_types`, are specified using the helper method `fields_for` that can be seen toward the bottom of the form. A partial form `exercise_fields_table` is rendered for each `exercise_type` that has been created in the controller's `new` method. And this is all that we need to do in the form itself to render fields belonging to associated models. 
+
+There is a couple of things that need to be done outside of the form in order to make nested models work. We need to let Rails know that the form used to create a new `workout_type` object will also be used to create the child objects `exercise_types`. We do this by adding a `accepts_nested_attributes_for` statement in the `workout_type` model, like this:
 
 ```ruby
 class WorkoutType < ActiveRecord::Base
@@ -67,4 +69,12 @@ class WorkoutType < ActiveRecord::Base
 end
 ```
 
+Last, we need to add the nested attributes to the parameters of WorkoutType class, like this:
 
+```ruby
+def workout_type_params
+	params.require(:workout_type).permit(:type_name, :public, :description, exercise_types_attributes: [:id, :name, :sets, :reps, :load, :url])
+end
+```
+
+Note that the parameters of `:workout_type` do not include the `:id` of `:workout_type`, but the parameters of `exercise_type_attributes` do include the `:id`. There is a good reason for this difference. Imagine we edit a `:workout_type`, which has `exercise_types` associated with it. If the `exercise_type` did not have an `:id`, then upon submitting the edit form, Rails would have no way to determine that it needs to save existing associated `exercise_types`. It does the next best thing and creates new `exercise_types`. This is why, without `:id` in the nested parameters, Rails would double the number of associated instances with every edit. (I found this out the hard way.) More on this issue [here](https://stackoverflow.com/questions/18946479/ror-nested-attributes-produces-duplicates-when-edit) and [here] (https://stackoverflow.com/questions/18946479/ror-nested-attributes-produces-duplicates-when-edit).
