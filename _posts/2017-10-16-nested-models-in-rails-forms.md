@@ -22,7 +22,7 @@ end
 Here, the workout_type and the associated exercises (child objects of workout_type) are created. (Routines are set to have a maximum of 10 exercises.)
 
 The exercise routine is created in a form that looks like this:
-(screenshot of form)
+![new routine form](https://imgur.com/7NC3on0)
 
 The form was created using simple_form gem.The simple_form documentation has a good description of nested models here (https://github.com/plataformatec/simple_form/wiki/Nested-Models). I followed this documentation to come up with the code below. 
 
