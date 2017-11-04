@@ -93,7 +93,9 @@ Last (but not least), we need to add the nested attributes to the parameters of 
 
 ```ruby
 def workout_type_params
-	params.require(:workout_type).permit(:type_name, :public, :description, exercise_types_attributes: [:id, :name, :sets, :reps, :load, :url])
+  params.require(:workout_type).permit(
+    :type_name, :public, :description, exercise_types_attributes: [:id, :name, :sets, :reps, :load, :url]
+  )
 end
 ```
 
