@@ -46,9 +46,21 @@ This form was created using simple_form gem.The simple_form documentation has a 
     <thead>
       <tr>
         <th>Exercise Name</th>
-        <th>Sets<br /><small><i>(assuming 1 set if left blank)</i></small></th>
+        <th>
+	  Sets
+	  <br />
+	  <small><i>
+	    (assuming 1 set if left blank)
+	  </i></small>
+      </th>
         <th>Reps</th>
-        <th>Load, lb or % max<br /><small><i>(leave blank if bodyweight)</i></small></th>
+        <th>
+	  Load, lb or % max
+	  <br />
+	  <small><i>
+	    (leave blank if bodyweight)
+	  </i></small>
+	</th>
         <th>Link to instructions on how to perform this exercise</th>
       </tr>
     </thead>
