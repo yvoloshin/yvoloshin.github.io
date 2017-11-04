@@ -30,35 +30,35 @@ This form was created using simple_form gem.The simple_form documentation has a 
 
 ```html
 <%= simple_form_for (@workout_type) do |f| %>
-	<%= f.input :type_name, label: 'What will you call this workout?' %>
-	<br />
-	<%= f.input :description, label: 'Add a brief description of this workout.', input_html: { class: 'mceEditor' } %>
+  <%= f.input :type_name, label: 'What will you call this workout?' %>
+  <br />
+  <%= f.input :description, label: 'Add a brief description of this workout.', input_html: { class: 'mceEditor' } %>
 	
-	<p>Who should be able to see this workout?</p>
-	<%= f.label :public, "All Users", :value => true %>
-    	<%= f.radio_button :public, true, :checked => true %>
-    	&nbsp;
-    	<%= f.label :public, "Myself Only", :value => false %>
-    	<%= f.radio_button :public, false %>
+  <p>Who should be able to see this workout?</p>
+  <%= f.label :public, "All Users", :value => true %>
+  <%= f.radio_button :public, true, :checked => true %>
+  &nbsp;
+  <%= f.label :public, "Myself Only", :value => false %>
+  <%= f.radio_button :public, false %>
     
-	<h3>Now enter up to 10 exercises:</h3> 
-	<table class="table table-bordered table-striped table-responsive">
-		<thead>
-		    <tr>
-		    	<th>Exercise Name</th>
-			<th>Sets<br /><small><i>(assuming 1 set if left blank)</i></small></th>
-		 	<th>Reps</th>
-		  	<th>Load, lb or % max<br /><small><i>(leave blank if bodyweight)</i></small></th>
-		  	<th>Link to instructions on how to perform this exercise</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	<%= f.fields_for :exercise_types, @exercise_types do |builder| %>
-		      		<%= render 'exercise_fields_table', :f => builder %>
-		    	<% end %>
-		  </tbody>
-	</table>
-	<%= f.submit 'Create Workout Routine', :class=>"btn btn-primary", :id=>"routine_submit" %>
+  <h3>Now enter up to 10 exercises:</h3> 
+  <table class="table table-bordered table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Exercise Name</th>
+        <th>Sets<br /><small><i>(assuming 1 set if left blank)</i></small></th>
+        <th>Reps</th>
+        <th>Load, lb or % max<br /><small><i>(leave blank if bodyweight)</i></small></th>
+        <th>Link to instructions on how to perform this exercise</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.fields_for :exercise_types, @exercise_types do |builder| %>
+        <%= render 'exercise_fields_table', :f => builder %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit 'Create Workout Routine', :class=>"btn btn-primary", :id=>"routine_submit" %>
 <% end %>
 ```
 
