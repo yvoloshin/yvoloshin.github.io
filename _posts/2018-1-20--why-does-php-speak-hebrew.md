@@ -24,7 +24,7 @@ if (isset(null)) {
 
 This gave me an error message that I've never seen before:
 `Parse error:  syntax error, unexpected ')', expecting T_PAAMAYIM_NEKUDOTAYIM`
-The location of the error was in the line with `if (empty(null))`.
+The location of the error was on the line containing `if (isset(null))`.
 
 The same message came up when I used `empty(null)` instead of `isset(null)`.
 
